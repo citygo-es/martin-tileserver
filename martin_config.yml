@@ -1,0 +1,222 @@
+# The socket address to bind [default: 0.0.0.0:3000]
+listen_addresses: '0.0.0.0:5000'
+
+postgres:
+  # Database connection string
+  connection_string: 'postgres://bbnavihub@bbnavi-datahub-postgresql/bbnavihub'
+
+  # disable automatic discovery of tables and functions
+  auto_publish: false
+
+  # Associative arrays of table sources
+  table_sources:
+    public.poi_coords:
+      # Table source id (required)
+      id: public.poi_coords
+
+      # Table schema (required)
+      schema: public
+
+      # Table name (required)
+      table: poi_coords
+
+      # Geometry SRID (required)
+      srid: 4326
+
+      # Geometry column name (required)
+      geometry_column: coords
+
+      # Feature id column name
+      id_column: id
+
+      # An integer specifying the minimum zoom level
+      minzoom: 0
+
+      # An integer specifying the maximum zoom level. MUST be >= minzoom
+      maxzoom: 30
+
+      # List of columns, that should be encoded as tile properties (required)
+      properties:
+        id: int8
+        name: string
+        svg_icon: string
+        tag_name: string
+
+    public.poi_coords_e_bike_charging_stations:
+      # Table source id (required)
+      id: public.poi_coords_e_bike_charging_stations
+
+      # Table schema (required)
+      schema: public
+
+      # Table name (required)
+      table: poi_coords_e_bike_charging_stations
+
+      # Geometry SRID (required)
+      srid: 4326
+
+      # Geometry column name (required)
+      geometry_column: coords
+
+      # An integer specifying the minimum zoom level
+      minzoom: 0
+
+      # An integer specifying the maximum zoom level. MUST be >= minzoom
+      maxzoom: 30
+
+      # List of columns, that should be encoded as tile properties (required)
+      properties:
+        id: string
+        datahub_id: int8
+        name: string
+        svg_icon: string
+        tag_name: string
+
+    public.poi_coords_e_bike_rentals:
+      # Table source id (required)
+      id: public.poi_coords_e_bike_rentals
+
+      # Table schema (required)
+      schema: public
+
+      # Table name (required)
+      table: poi_coords_e_bike_rentals
+
+      # Geometry SRID (required)
+      srid: 4326
+
+      # Geometry column name (required)
+      geometry_column: coords
+
+      # An integer specifying the minimum zoom level
+      minzoom: 0
+
+      # An integer specifying the maximum zoom level. MUST be >= minzoom
+      maxzoom: 30
+
+      # List of columns, that should be encoded as tile properties (required)
+      properties:
+        id: string
+        datahub_id: int8
+        name: string
+        svg_icon: string
+        tag_name: string
+
+    public.poi_coords_bike_rentals:
+      # Table source id (required)
+      id: public.poi_coords_bike_rentals
+
+      # Table schema (required)
+      schema: public
+
+      # Table name (required)
+      table: poi_coords_bike_rentals
+
+      # Geometry SRID (required)
+      srid: 4326
+
+      # Geometry column name (required)
+      geometry_column: coords
+
+      # An integer specifying the minimum zoom level
+      minzoom: 0
+
+      # An integer specifying the maximum zoom level. MUST be >= minzoom
+      maxzoom: 30
+
+      # List of columns, that should be encoded as tile properties (required)
+      properties:
+        id: string
+        datahub_id: int8
+        name: string
+        svg_icon: string
+        tag_name: string
+
+    public.poi_coords_bike_repair_shops:
+      # Table source id (required)
+      id: public.poi_coords_bike_repair_shops
+
+      # Table schema (required)
+      schema: public
+
+      # Table name (required)
+      table: poi_coords_bike_repair_shops
+
+      # Geometry SRID (required)
+      srid: 4326
+
+      # Geometry column name (required)
+      geometry_column: coords
+
+      # An integer specifying the minimum zoom level
+      minzoom: 0
+
+      # An integer specifying the maximum zoom level. MUST be >= minzoom
+      maxzoom: 30
+
+      # List of columns, that should be encoded as tile properties (required)
+      properties:
+        id: string
+        datahub_id: int8
+        name: string
+        svg_icon: string
+        tag_name: string
+
+    public.poi_coords_rideshare_points:
+      # Table source id (required)
+      id: public.poi_coords_rideshare_points
+
+      # Table schema (required)
+      schema: public
+
+      # Table name (required)
+      table: poi_coords_rideshare_points
+
+      # Geometry SRID (required)
+      srid: 4326
+
+      # Geometry column name (required)
+      geometry_column: coords
+
+      # An integer specifying the minimum zoom level
+      minzoom: 0
+
+      # An integer specifying the maximum zoom level. MUST be >= minzoom
+      maxzoom: 30
+
+      # List of columns, that should be encoded as tile properties (required)
+      properties:
+        id: string
+        datahub_id: int8
+        name: string
+        svg_icon: string
+
+  function_sources:
+    public.poi_coords_for_category:
+      # Table source id (required)
+      id: public.poi_coords_for_category
+
+      # Table schema (required)
+      schema: public
+
+      # Function name (required)
+      function: poi_coords_for_category
+
+      # Geometry SRID (required)
+      srid: 4326
+
+      # Geometry column name (required)
+      geometry_column: coords
+
+      # An integer specifying the minimum zoom level
+      minzoom: 0
+
+      # An integer specifying the maximum zoom level. MUST be >= minzoom
+      maxzoom: 30
+
+      # List of columns, that should be encoded as tile properties (required)
+      properties:
+        id: string
+        datahub_id: int8
+        name: string
+        svg_icon: string
